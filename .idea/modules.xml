@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wk-common/wk-common.iml" filepath="$PROJECT_DIR$/wk-common/wk-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-dao/wk-manager-dao.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-dao/wk-manager-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-interface/wk-manager-interface.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-interface/wk-manager-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-pojo/wk-manager-pojo.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-pojo/wk-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-parent/wk-parent.iml" filepath="$PROJECT_DIR$/wk-parent/wk-parent.iml" />
+    </modules>
+  </component>
+</project>

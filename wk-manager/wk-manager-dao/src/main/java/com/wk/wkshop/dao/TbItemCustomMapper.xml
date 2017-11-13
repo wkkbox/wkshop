@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wk.wkshop.dao.TbItemCustomMapper">
+
+    <sql id="Base_Column_List">
+         i.id, i.title, i.sell_point as sellPoint, i.price,
+         i.num, i.barcode, i.image, i.cid, i.status, i.created, i.updated,
+         c.name as catName,FORMAT(i.price/100,2) as priceView
+    </sql>
+
+    <sql id="Where_clause">
+        <where>
+            i.status != 3
+            <if test="query.title != null and query.title != '' ">
+                AND i.title LIKE CONCAT('%',#{query.title},'%')
+            </if>
+            <if test="query.status != null and query.status != 0 ">
+                AND i.status = #{query.status}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countItems" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(1)
+        FROM tb_item i
+        <include refid="Where_clause"/>
+    </select>
+
+    <select id="listItemsByPage" parameterType="java.util.Map" resultType="com.wk.wkshop.pojo.vo.TbItemCustom">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tb_item i
+        LEFT JOIN tb_item_cat c ON i.cid = c.id
+        <include refid="Where_clause"/>
+        <choose>
+            <when test="order != null and order.order != null and order.sort != null">
+                <foreach collection="order.orderParams" item="item" open="order by" close="" separator=",">
+                    <!--<choose>
+                        <when test="item eq 'sellPoint desc'">
+                            i.sell_point desc
+                        </when>
+                    </choose>-->
+                    i.${item}
+                </foreach>
+            </when>
+            <otherwise>
+                ORDER BY i.id DESC
+            </otherwise>
+        </choose>
+        <!-- 调用getXxx()方法 -->
+        limit #{page.offset},#{page.rows}
+    </select>
+
+    <!--<select id="listItemsByPage" parameterType="java.util.Map" resultType="com.wk.wkshop.pojo.vo.TbItemCustom">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tb_item i
+        LEFT JOIN tb_item_cat c ON i.cid = c.id
+        WHERE i.status != 3
+        <choose>
+            <when test="order != null and order.order != null and order.sort != null">
+                &lt;!&ndash; #{}和${}的区别 &ndash;&gt;
+                &lt;!&ndash; 最简单的区别就是${}解析传过来的参数值不带单引号，#{}解析传过来参数带单引号
+                     使用#{}语法,MyBatis会产生PreparedStatement语句中，并且安全的设置PreparedStatement参数，这个过程中MyBatis会进行必要的安全检查和转义
+                     ${}方式会引发SQL注入的问题、同时也会影响SQL语句的预编译，所以从安全性和性能的角度出发，能使用#{}的情况下就不要使用${}
+                     但是${}在什么情况下使用呢？比如，动态SQL中的字段名，如：ORDER BY ${columnName}&ndash;&gt;
+                ORDER BY CONVERT(i.${order.sort} USING gbk) ${order.order}&lt;!&ndash; 只能是${},不能是#{},#{}会错 &ndash;&gt;
+            </when>
+            <otherwise>
+                ORDER BY i.id DESC
+            </otherwise>
+        </choose>
+        &lt;!&ndash; 调用getXxx()方法 &ndash;&gt;
+        limit #{page.offset},#{page.rows}
+    </select>-->
+
+</mapper>

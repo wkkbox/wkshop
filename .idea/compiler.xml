@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wk-common" />
+        <module name="wk-manager-dao" />
+        <module name="wk-manager-interface" />
+        <module name="wk-manager-pojo" />
+        <module name="wk-manager-service" />
+        <module name="wk-manager-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wk-common" target="1.8" />
+      <module name="wk-manager" target="1.8" />
+      <module name="wk-manager-dao" target="1.8" />
+      <module name="wk-manager-interface" target="1.8" />
+      <module name="wk-manager-pojo" target="1.8" />
+      <module name="wk-manager-service" target="1.8" />
+      <module name="wk-manager-web" target="1.8" />
+      <module name="wk-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
