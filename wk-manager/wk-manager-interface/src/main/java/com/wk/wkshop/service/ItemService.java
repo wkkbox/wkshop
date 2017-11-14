@@ -21,7 +21,7 @@ public interface ItemService {
 
     Integer upItemsByIds(List<Long> ids);
 
-    Integer saveItem(TbItem tbItem, String content);
+    Integer saveItem(TbItem tbItem, String content) throws Exception;
 
     //List<TbItem> listItems();
 }

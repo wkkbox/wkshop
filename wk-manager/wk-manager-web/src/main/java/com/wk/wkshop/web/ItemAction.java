@@ -80,6 +80,7 @@ public class ItemAction {
             i = itemService.saveItem(tbItem, content);
             System.out.println("受影响行数=" + i);
         } catch (Exception e) {
+            System.out.println(logger);
             logger.error(e.getMessage(), e);
             e.printStackTrace();
         }

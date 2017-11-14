@@ -87,8 +87,9 @@
                 //如果有任意一个字段没有校验通过，返回false，不会提交表单
                 return $(this).form('validate');
             },
-            //后台处理成功之后的回调函数
+            //在表单提交成功以后触发
             success: function (data) {
+                alert(data);
                 if (data > 0) {
                     $.messager.alert('消息', '添加商品成功！', 'info');
                     wkshop.addTab('查询商品', 'item-list');
@@ -105,6 +106,8 @@
         ue.setContent('商品描述');
     }
 
+    //初始化之前删除原有的容器
+    UE.delEditor('container');
     //实例化富文本编辑器
     var ue = UE.getEditor('container');
     //加载商品类目的树形下拉框

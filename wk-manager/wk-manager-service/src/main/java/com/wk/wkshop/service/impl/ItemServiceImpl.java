@@ -98,7 +98,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     @Transactional(rollbackFor = {Exception.class})
-    public Integer saveItem(TbItem tbItem, String content) {
+    public Integer saveItem(TbItem tbItem, String content) throws Exception {
         Integer i = 0;
         Long id = IDUtils.getItemId();
         tbItem.setId(id);
