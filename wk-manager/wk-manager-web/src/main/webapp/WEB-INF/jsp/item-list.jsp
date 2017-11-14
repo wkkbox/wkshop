@@ -180,7 +180,7 @@
 <script>
     function add() {
         //alert('add');
-        wkshop.addTab('新增商品','item-add');
+        wkshop.addTab('新增商品', 'item-add');
     }
 
     function remove() {
@@ -213,8 +213,13 @@
                     {'ids[]': ids},
                     //callback:后台处理成功的回调函数，相当于success，function类型
                     function (data) {
-                        console.log(data);
-                        $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                        if (data > 0) {
+                            console.log(data);
+                            $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                            $.messager.alert('消息', '删除成功！', 'info');
+                        } else {
+                            $.messager.alert('消息', '删除失败！', 'warning');
+                        }
                     },
                     //dataType:返回的数据类型，如：json，String类型
                     'json'
@@ -263,8 +268,13 @@
                     {'ids[]': ids},
                     //callback:后台处理成功的回调函数，相当于success，function类型
                     function (data) {
-                        console.log(data);
-                        $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                        if (data > 0) {
+                            console.log(data);
+                            $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                            $.messager.alert('消息', '下架成功！', 'info');
+                        } else {
+                            $.messager.alert('消息', '下架失败！', 'warning');
+                        }
                     },
                     //dataType:返回的数据类型，如：json，String类型
                     'json'
@@ -309,8 +319,13 @@
                     {'ids[]': ids},
                     //callback:后台处理成功的回调函数，相当于success，function类型
                     function (data) {
-                        console.log(data);
-                        $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                        if (data > 0) {
+                            console.log(data);
+                            $("#dg").datagrid('reload');//load和reload的区别是reload刷新后还在当前页，而load刷新后在第1页
+                            $.messager.alert('消息', '上架成功！', 'info');
+                        } else {
+                            $.messager.alert('消息', '上架失败！', 'warning');
+                        }
                     },
                     //dataType:返回的数据类型，如：json，String类型
                     'json'

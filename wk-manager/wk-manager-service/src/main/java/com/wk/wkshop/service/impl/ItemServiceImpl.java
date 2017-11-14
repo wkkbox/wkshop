@@ -4,9 +4,11 @@ import com.wk.wkshop.common.util.IDUtils;
 import com.wk.wkshop.dao.TbItemCustomMapper;
 import com.wk.wkshop.dao.TbItemDescMapper;
 import com.wk.wkshop.dao.TbItemMapper;
+import com.wk.wkshop.dao.TbItemParamItemMapper;
 import com.wk.wkshop.pojo.po.TbItem;
 import com.wk.wkshop.pojo.po.TbItemDesc;
 import com.wk.wkshop.pojo.po.TbItemExample;
+import com.wk.wkshop.pojo.po.TbItemParamItem;
 import com.wk.wkshop.pojo.vo.TbItemCustom;
 import com.wk.wkshop.pojo.vo.TbItemQuery;
 import com.wk.wkshop.service.ItemService;
@@ -37,6 +39,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private TbItemDescMapper tbItemDescMapper;
+
+    @Autowired
+    private TbItemParamItemMapper tbItemParamItemMapper;
 
     @Override
     public TbItem getById(Long itemId) {
@@ -93,19 +98,26 @@ public class ItemServiceImpl implements ItemService {
         TbItemExample example = new TbItemExample();
         TbItemExample.Criteria criteria = example.createCriteria();
         criteria.andIdIn(ids);
+        //System.out.println(1/0);
         return tbItemMapper.updateByExampleSelective(record, example);
     }
 
+    //加上注解@Transactional之后，这个方法就变成了事务方法
+    //并不是事务方法越多越好，查询方法不需要添加为事务方法
     @Override
     @Transactional(rollbackFor = {Exception.class})
-    public Integer saveItem(TbItem tbItem, String content) throws Exception {
+    public Integer saveItem(TbItem tbItem, String content, String paramData) throws Exception {
         Integer i = 0;
+        //这个方法中需要处理三张表格tb_item，tb_item_desc，tb_item_param_item
+        //调用工具类生成商品的ID
+        //处理tb_item
         Long id = IDUtils.getItemId();
         tbItem.setId(id);
         tbItem.setStatus((byte) 1);
         tbItem.setCreated(new Date());
         tbItem.setUpdated(new Date());
         i = tbItemMapper.insert(tbItem);
+        //处理tb_item_desc
         TbItemDesc tbItemDesc = new TbItemDesc();
         tbItemDesc.setCreated(new Date());
         tbItemDesc.setUpdated(new Date());
@@ -114,6 +126,14 @@ public class ItemServiceImpl implements ItemService {
         System.out.println(1 / 0);*/
         tbItemDesc.setItemDesc(content);
         i += tbItemDescMapper.insert(tbItemDesc);
+        //处理tb_item_param_item
+        TbItemParamItem tbItemParamItem = new TbItemParamItem();
+        tbItemParamItem.setCreated(new Date());
+        tbItemParamItem.setUpdated(new Date());
+        tbItemParamItem.setItemId(id);
+        tbItemParamItem.setParamData(paramData);
+        i += tbItemParamItemMapper.insertSelective(tbItemParamItem);
+
         return i;
     }
 

@@ -74,10 +74,10 @@ public class ItemAction {
 
     @ResponseBody
     @RequestMapping(value = {"/item"}, method = {RequestMethod.POST})
-    public Integer saveItem(TbItem tbItem, String content) {
+    public Integer saveItem(TbItem tbItem, String content, String paramData) {
         Integer i = 0;
         try {
-            i = itemService.saveItem(tbItem, content);
+            i = itemService.saveItem(tbItem, content, paramData);
             System.out.println("受影响行数=" + i);
         } catch (Exception e) {
             System.out.println(logger);
