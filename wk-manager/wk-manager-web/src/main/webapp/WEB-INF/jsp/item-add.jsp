@@ -139,7 +139,13 @@
     //初始化之前删除原有的容器
     UE.delEditor('container');
     //实例化富文本编辑器
-    var ue = UE.getEditor('container');
+    //get请求
+    //可以初始化修改ueditor.config.js的属性
+    var ue = UE.getEditor('container', {
+        initialFrameWidth: '100%',
+        initialFrameHeight: '300',
+        serverUrl:'file/upload'//用于自定义上传action返回config.json文件给客户端
+    });
     //加载商品类目的树形下拉框
     $("#cid").combotree({
         url: 'itemCats?parentId=0', /*在数据库中0没有父节点了，是顶级的*/

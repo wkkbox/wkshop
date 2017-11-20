@@ -1,9 +1,6 @@
 package com.wk.wkshop.web;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.wk.wkshop.common.util.IDUtils;
 import com.wk.wkshop.pojo.po.TbItem;
-import com.wk.wkshop.pojo.po.TbItemDesc;
 import com.wk.wkshop.pojo.vo.TbItemCustom;
 import com.wk.wkshop.pojo.vo.TbItemQuery;
 import com.wk.wkshop.service.ItemService;
@@ -17,8 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.List;
 
 @Controller
@@ -95,11 +90,11 @@ public class ItemAction {
 
         Integer affect = 0;
         try {
-            if (request.getRequestURI().indexOf("removeItemBatch") >= 0) {
+            if (request.getRequestURI().indexOf("removeItemBatch") > 0) {
                 affect = itemService.removeItemsByIds(ids);
-            } else if (request.getRequestURI().indexOf("downItemBatch") >= 0) {
+            } else if (request.getRequestURI().indexOf("downItemBatch") > 0) {
                 affect = itemService.downItemsByIds(ids);
-            } else if (request.getRequestURI().indexOf("upItemBatch") >= 0) {
+            } else if (request.getRequestURI().indexOf("upItemBatch") > 0) {
                 affect = itemService.upItemsByIds(ids);
             }
 

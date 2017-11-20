@@ -11,6 +11,7 @@
     <modules>
         <module>../wk-common</module>
         <module>../wk-manager</module>
+        <module>../wk-upload</module>
     </modules>
     <!--打包方式，默认是jar-->
     <packaging>pom</packaging>
@@ -18,7 +19,6 @@
     <!--相关jar的版本号属性-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <junit.version>4.12</junit.version>
         <spring.version>4.2.8.RELEASE</spring.version>
         <mybatis.version>3.4.4</mybatis.version>

@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-parent/wk-parent.iml" filepath="$PROJECT_DIR$/wk-parent/wk-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-upload/wk-upload.iml" filepath="$PROJECT_DIR$/wk-upload/wk-upload.iml" />
     </modules>
   </component>
 </project>

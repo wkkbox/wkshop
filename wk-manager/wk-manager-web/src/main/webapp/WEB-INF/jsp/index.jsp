@@ -7,8 +7,10 @@
     <title>首页</title>
     <!-- 导入easyui的样式表 -->
     <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/bootstrap/easyui.css">
-    <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/icon.css">//图标
-    <link rel="stylesheet" href="css/common.css">//图标
+    <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/icon.css">
+    //图标
+    <link rel="stylesheet" href="css/common.css">
+    //图标
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:70px;padding-left:10px;">
@@ -91,6 +93,19 @@
             }
         });
     });*/
+</script>
+<%--每次上传都是在这里执行了--%>
+<script>
+    UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+    UE.Editor.prototype.getActionUrl = function (action) {
+        if (action == 'uploadimage') {
+            return 'http://localhost:8080/wkshop/file/uploadimage';
+        } else if (action == 'uploadvideo') {
+            return 'http://localhost:8080/wkshop/file/uploadvideo';
+        } else {
+            return this._bkGetActionUrl.call(this, action);
+        }
+    }
 </script>
 </body>
 </html>

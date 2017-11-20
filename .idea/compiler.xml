@@ -12,6 +12,7 @@
         <module name="wk-manager-pojo" />
         <module name="wk-manager-service" />
         <module name="wk-manager-web" />
+        <module name="wk-upload" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="wk-manager-service" target="1.8" />
       <module name="wk-manager-web" target="1.8" />
       <module name="wk-parent" target="1.8" />
+      <module name="wk-upload" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
