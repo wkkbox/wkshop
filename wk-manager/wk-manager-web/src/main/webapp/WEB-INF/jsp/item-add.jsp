@@ -118,8 +118,9 @@
             },
             //在表单提交成功以后触发
             success: function (data) {
-                alert(data);
-                if (data > 0) {
+                //alert(data);
+                var obj = JSON.parse(data);
+                if (obj.success) {
                     $.messager.alert('消息', '添加商品成功！', 'info');
                     wkshop.addTab('查询商品', 'item-list');
                     wkshop.closeTab('新增商品');
@@ -144,7 +145,7 @@
     var ue = UE.getEditor('container', {
         initialFrameWidth: '100%',
         initialFrameHeight: '300',
-        serverUrl:'file/upload'//用于自定义上传action返回config.json文件给客户端
+        serverUrl: 'file/upload'//用于自定义上传action返回config.json文件给客户端
     });
     //加载商品类目的树形下拉框
     $("#cid").combotree({
@@ -174,7 +175,7 @@
                     'itemParam/query/' + node.id,
                     //success
                     function (data) {
-                        console.log("success刚进来"+JSON.stringify(data));
+                        console.log("success刚进来" + JSON.stringify(data));
                         var $outerTd = $('#itemAddForm .paramsShow td').eq(1);
                         var $ul = $("<ul>");
                         $outerTd.empty().append($ul);
@@ -202,7 +203,7 @@
                             });
                             $("#itemAddForm .paramsShow").show();
                         } else {
-                            console.log("这个类别没有规模"+JSON.stringify(data));
+                            console.log("这个类别没有规模" + JSON.stringify(data));
                             $("#itemAddForm .paramsShow").hide();
                             $outerTd.empty();
                         }

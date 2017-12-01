@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/wk-activemq/wk-activemq.iml" filepath="$PROJECT_DIR$/wk-activemq/wk-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-common/wk-common.iml" filepath="$PROJECT_DIR$/wk-common/wk-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-lucene/wk-lucene.iml" filepath="$PROJECT_DIR$/wk-lucene/wk-lucene.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-dao/wk-manager-dao.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-dao/wk-manager-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-interface/wk-manager-interface.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-interface/wk-manager-interface.iml" />
@@ -10,6 +12,9 @@
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-service/wk-manager-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" filepath="$PROJECT_DIR$/wk-manager/wk-manager-web/wk-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-parent/wk-parent.iml" filepath="$PROJECT_DIR$/wk-parent/wk-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-portal-web/wk-portal-web.iml" filepath="$PROJECT_DIR$/wk-portal-web/wk-portal-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-search-web/wk-search-web.iml" filepath="$PROJECT_DIR$/wk-search-web/wk-search-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wk-sso-web/wk-sso-web.iml" filepath="$PROJECT_DIR$/wk-sso-web/wk-sso-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/wk-upload/wk-upload.iml" filepath="$PROJECT_DIR$/wk-upload/wk-upload.iml" />
     </modules>
   </component>

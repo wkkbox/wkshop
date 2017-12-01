@@ -108,7 +108,7 @@ public class ItemServiceImpl implements ItemService {
     //并不是事务方法越多越好，查询方法不需要添加为事务方法
     @Override
     @Transactional(rollbackFor = {Exception.class})
-    public Integer saveItem(TbItem tbItem, String content, String paramData) throws Exception {
+    public Long saveItem(TbItem tbItem, String content, String paramData) throws Exception {
         Integer i = 0;
         //这个方法中需要处理三张表格tb_item，tb_item_desc，tb_item_param_item
         //调用工具类生成商品的ID
@@ -136,7 +136,7 @@ public class ItemServiceImpl implements ItemService {
         tbItemParamItem.setParamData(paramData);
         i += tbItemParamItemMapper.insertSelective(tbItemParamItem);
 
-        return i;
+        return id;
     }
 
     /*@Override

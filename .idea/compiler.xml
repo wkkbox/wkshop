@@ -6,17 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="wk-activemq" />
         <module name="wk-common" />
+        <module name="wk-lucene" />
         <module name="wk-manager-dao" />
         <module name="wk-manager-interface" />
         <module name="wk-manager-pojo" />
         <module name="wk-manager-service" />
         <module name="wk-manager-web" />
+        <module name="wk-portal-web" />
+        <module name="wk-search-web" />
+        <module name="wk-sso-web" />
         <module name="wk-upload" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="wk-activemq" target="1.8" />
       <module name="wk-common" target="1.8" />
+      <module name="wk-lucene" target="1.8" />
       <module name="wk-manager" target="1.8" />
       <module name="wk-manager-dao" target="1.8" />
       <module name="wk-manager-interface" target="1.8" />
@@ -24,6 +31,9 @@
       <module name="wk-manager-service" target="1.8" />
       <module name="wk-manager-web" target="1.8" />
       <module name="wk-parent" target="1.8" />
+      <module name="wk-portal-web" target="1.8" />
+      <module name="wk-search-web" target="1.8" />
+      <module name="wk-sso-web" target="1.8" />
       <module name="wk-upload" target="1.8" />
     </bytecodeTargetLevel>
   </component>

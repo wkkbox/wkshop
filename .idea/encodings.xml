@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/wk-activemq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wk-lucene" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-manager" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-manager/wk-manager-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-manager/wk-manager-interface" charset="UTF-8" />
@@ -9,6 +11,9 @@
     <file url="file://$PROJECT_DIR$/wk-manager/wk-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-manager/wk-manager-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wk-portal-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wk-search-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wk-sso-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wk-upload" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

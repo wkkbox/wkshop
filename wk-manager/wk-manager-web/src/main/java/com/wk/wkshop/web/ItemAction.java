@@ -4,15 +4,20 @@ import com.wk.wkshop.pojo.po.TbItem;
 import com.wk.wkshop.pojo.vo.TbItemCustom;
 import com.wk.wkshop.pojo.vo.TbItemQuery;
 import com.wk.wkshop.service.ItemService;
+import com.wk.wkshpo.common.dto.MessageResult;
 import com.wk.wkshpo.common.dto.Order;
 import com.wk.wkshpo.common.dto.Page;
 import com.wk.wkshpo.common.dto.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import javax.jms.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -23,6 +28,12 @@ public class ItemAction {
 
     @Autowired
     private ItemService itemService;
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Resource(name = "topicDestination")
+    private Destination destination;
 
     @RequestMapping(value = {"/item/{itemId}"}, method = RequestMethod.GET)
     @ResponseBody
@@ -69,18 +80,30 @@ public class ItemAction {
 
     @ResponseBody
     @RequestMapping(value = {"/item"}, method = {RequestMethod.POST})
-    public Integer saveItem(TbItem tbItem, String content, String paramData) {
-        Integer i = 0;
+    public MessageResult saveItem(TbItem tbItem, String content, String paramData) {
+        MessageResult result = new MessageResult();
         try {
-            i = itemService.saveItem(tbItem, content, paramData);
-            System.out.println("受影响行数=" + i);
+            //保存商品
+            final Long itemId = itemService.saveItem(tbItem, content, paramData);
+            //发送消息
+            jmsTemplate.send(destination, new MessageCreator() {
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+                    TextMessage textMessage = session.createTextMessage(itemId+"");
+                    return textMessage;
+                }
+            });
+            result.setSuccess(true);
+            result.setMessage("添加商品成功！");
         } catch (Exception e) {
+            result.setSuccess(false);
+            result.setMessage("添加商品失败！");
             System.out.println(logger);
             logger.error(e.getMessage(), e);
             e.printStackTrace();
         }
 
-        return i;
+        return result;
     }
 
     @ResponseBody

@@ -12,6 +12,11 @@
         <module>../wk-common</module>
         <module>../wk-manager</module>
         <module>../wk-upload</module>
+        <module>../wk-portal-web</module>
+        <module>../wk-lucene</module>
+        <module>../wk-search-web</module>
+        <module>../wk-activemq</module>
+        <module>../wk-sso-web</module>
     </modules>
     <!--打包方式，默认是jar-->
     <packaging>pom</packaging>
