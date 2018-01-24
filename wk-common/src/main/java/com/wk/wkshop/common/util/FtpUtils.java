@@ -7,12 +7,6 @@ import org.apache.commons.net.ftp.FTPReply;
 
 import java.io.*;
 
-/**
- * User: DHC
- * Date: 2017/9/12
- * Time: 10:04
- * Version:V1.0
- */
 public class FtpUtils {
 
     /**

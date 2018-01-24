@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wk-portal-web:war">
+    <output-path>$PROJECT_DIR$/wk-portal-web/target</output-path>
+    <root id="archive" name="wk-portal-web.war">
+      <element id="artifact" artifact-name="wk-portal-web:war exploded" />
+    </root>
+  </artifact>
+</component>
